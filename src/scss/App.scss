@@ -1,0 +1,93 @@
+@import "./variables.scss";
+
+@mixin textDecorationVerticalLine($side) {
+	content: "";
+	position: absolute;
+	top: -1em;
+	#{$side}: -1em;
+	width: 2px;
+	height: calc(100% + 2em);
+	background-color: black;
+}
+
+@mixin textVerticalOverflow($size) {
+	@if $size > 80px {
+		overflow: scroll;
+		overflow-x: hidden;
+		padding: 1em;
+	}
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.App {
+	display: flex;
+}
+main {
+	width: 80vw;
+}
+.container {
+	width: 100%;
+	max-height: 100vh;
+	padding: $default-gap;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: $default-gap;
+	&__banner {
+		max-width: 40%;
+		max-height: calc(100vh - 4em);
+		img {
+			height: 100%;
+			max-width: calc(100% - $default-gap);
+			display: block;
+			margin: auto;
+		}
+	}
+	&__text {
+		font-family: "Quicksand";
+		box-sizing: border-box;
+		padding: $default-gap;
+		max-width: 60%;
+
+		&--left {
+			text-align: right;
+			position: relative;
+			p {
+				max-height: $max-text-height;
+				overflow: auto;
+				&.hide-text-decoration {
+					padding: 1em;
+
+					&::after {
+						display: none;
+					}
+				}
+				&::after {
+					@include textDecorationVerticalLine(right);
+				}
+			}
+		}
+		&--right {
+			text-align: left;
+			position: relative;
+			&::after {
+				@include textDecorationVerticalLine(left);
+			}
+		}
+	}
+}
+
+//shared classes
+.w-25 {
+	width: 25%;
+}
+.w-50 {
+	width: 50%;
+}
+.w-75 {
+	width: 75%;
+}
