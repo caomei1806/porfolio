@@ -8,6 +8,7 @@
 	width: 2px;
 	height: calc(100% + 2em);
 	background-color: black;
+	margin-#{$side}: 1em;
 }
 
 @mixin textVerticalOverflow($size) {
@@ -22,12 +23,24 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	&:hover {
+		cursor: pointer;
+	}
 }
 .App {
 	display: flex;
+	position: relative;
 }
 main {
 	width: 80vw;
+	margin-left: auto;
+	.technologyBox {
+		display: flex;
+		padding: $default-gap * 3;
+		gap: $default-gap;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
 }
 .container {
 	width: 100%;
@@ -61,7 +74,6 @@ main {
 				overflow: auto;
 				&.hide-text-decoration {
 					padding: 1em;
-
 					&::after {
 						display: none;
 					}
