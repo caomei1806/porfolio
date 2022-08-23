@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import '../../scss/Card.scss'
+import '../../scss/ProjectCard.scss'
 
-const TechnologyCard = () => {
+const ProjectCard = () => {
 	const cartPicture: string =
-		'https://i.pinimg.com/564x/f1/ae/9a/f1ae9a28b2ca9a86c200a9314e9fb73e.jpg'
+		'https://i.pinimg.com/564x/cd/13/85/cd138530270a740ebf46f7c481754a42.jpg'
 	const cardTitleIcon: string =
 		'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/640px-React-icon.svg.png'
 	const cardInfo =
@@ -13,11 +13,11 @@ const TechnologyCard = () => {
 
 	return (
 		<article
-			className=' card card--pictureCard'
+			className='projectCard projectCard--pictureCard'
 			style={{ backgroundImage: `url("${cartPicture}")` }}
 		>
 			<aside
-				className='card__title--withPicture'
+				className='projectCard__title--withPicture'
 				onMouseOver={() => setShowCardInfo(true)}
 				onMouseOut={() => setShowCardInfo(false)}
 			>
@@ -28,4 +28,4 @@ const TechnologyCard = () => {
 	)
 }
 
-export default TechnologyCard
+export default ProjectCard

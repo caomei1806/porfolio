@@ -19,24 +19,14 @@ const TextContainer = () => {
 		hideDecorationLine()
 	}, [])
 	return (
-		<section className='container__text container__text--left w-50'>
+		<section className='container__text container__text--right w-50'>
 			<p ref={textReference}>
 				I consider myself as a prosperous and bright person, that is looking
 				forward to enter the professional market. I want to improve my skills,
 				alter them, learn new techniques and technologies with help of more
 				experienced proggrammers, to make sure that my abilities and commitment
 				will be exploited to the full and that effect of the final product would
-				be maximised.I consider myself as a prosperous and bright person, that
-				is looking forward to enter the professional market. I want to improve
-				my skills, alter them, learn new techniques and technologies with help
-				of more experienced proggrammers, to make sure that my abilities and
-				commitment will be exploited to the full and that effect of the final
-				product would be maximised. I consider myself as a prosperous and bright
-				person, that is looking forward to enter the professional market. I want
-				to improve my skills, alter them, learn new techniques and technologies
-				with help of more experienced proggrammers, to make sure that my
-				abilities and commitment will be exploited to the full and that effect
-				of the final product would be maximised.
+				be maximised.
 			</p>
 		</section>
 	)

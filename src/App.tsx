@@ -2,7 +2,9 @@ import React from 'react'
 import './scss/App.scss'
 import Sidebar from './components/shared/sidebar/Sidebar'
 import About from './components/About'
-import UsedTechnologies from './components/UsedTechnologies'
+import Projects from './components/Projects'
+import Technologies from './components/Technologies'
+import SectionDecoration from './components/shared/SectionDecoration'
 
 function App() {
 	return (
@@ -10,7 +12,10 @@ function App() {
 			<Sidebar />
 			<main>
 				<About />
-				<UsedTechnologies />
+				<SectionDecoration placement={'top'} />
+				<Technologies />
+				<SectionDecoration placement={'bottom'} />
+				<Projects />
 			</main>
 		</div>
 	)

@@ -7,7 +7,7 @@
 	#{$side}: -1em;
 	width: 2px;
 	height: calc(100% + 2em);
-	background-color: black;
+	background-color: $gray;
 	margin-#{$side}: 1em;
 }
 
@@ -19,27 +19,76 @@
 	}
 }
 
+@keyframes fanning {
+	from {
+		transform: rotate(0deg) rotateX(5deg);
+	}
+	25% {
+		transform: rotate(-60deg) rotateX(6deg);
+	}
+	50% {
+		transform: rotate(60deg) rotateX(8deg);
+	}
+	75% {
+		transform: rotate(-60deg) rotateX(6deg);
+	}
+	to {
+		transform: rotate(0deg) rotateX(5deg);
+	}
+}
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	&:hover {
-		cursor: pointer;
-	}
 }
 .App {
 	display: flex;
 	position: relative;
 }
+::-webkit-scrollbar {
+	background-color: $light-gray;
+	width: 15px;
+	&-thumb {
+		background-color: rgb(179, 206, 237);
+	}
+}
 main {
 	width: 80vw;
 	margin-left: auto;
+
+	.projectBox,
 	.technologyBox {
 		display: flex;
-		padding: $default-gap * 3;
 		gap: $default-gap;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
+		padding: $default-gap * 3;
+	}
+	.decorator {
+		width: 70%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		height: fit-content;
+		margin-left: auto;
+		margin-right: auto;
+		padding: $default-gap * 4;
+		&.top {
+			transform: rotate(180deg);
+		}
+		img {
+			filter: grayscale(1);
+			height: 100px;
+			transition: all 0.5s ease-in;
+			position: absolute;
+		}
+		&:hover img {
+			filter: hue-rotate(195deg);
+			animation-duration: 1.5s;
+			animation-name: fanning;
+		}
 	}
 }
 .container {
@@ -68,10 +117,23 @@ main {
 
 		&--left {
 			text-align: right;
+		}
+		&--right {
+			text-align: left;
+		}
+		&--left,
+		&--right {
 			position: relative;
+
 			p {
 				max-height: $max-text-height;
 				overflow: auto;
+				&::-webkit-scrollbar {
+					width: 10px;
+					&-thumb {
+						background-color: $gray;
+					}
+				}
 				&.hide-text-decoration {
 					padding: 1em;
 					&::after {
@@ -81,13 +143,6 @@ main {
 				&::after {
 					@include textDecorationVerticalLine(right);
 				}
-			}
-		}
-		&--right {
-			text-align: left;
-			position: relative;
-			&::after {
-				@include textDecorationVerticalLine(left);
 			}
 		}
 	}
