@@ -11,6 +11,9 @@
 	position: fixed;
 	top: 0;
 	left: 0;
+	@media only screen and (max-width: 1200px) {
+		width: 30vw;
+	}
 	.scrollbar {
 		&-track {
 			height: 80%;
@@ -20,7 +23,7 @@
 		&-thumb {
 			height: calc(60vh / 5);
 			width: 100%;
-			background-color: rgb(122, 112, 208);
+			background-color: $primary;
 		}
 	}
 	.sectionTitles {

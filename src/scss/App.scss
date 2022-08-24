@@ -50,20 +50,26 @@
 	background-color: $light-gray;
 	width: 15px;
 	&-thumb {
-		background-color: rgb(179, 206, 237);
+		background-color: $secondary;
 	}
 }
 main {
 	width: 80vw;
 	margin-left: auto;
-
+	@media only screen and (max-width: 1200px) {
+		width: 70vw;
+	}
 	.projectBox,
 	.technologyBox {
 		display: flex;
 		gap: $default-gap;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
-		padding: $default-gap * 3;
+		padding: $default-gap * 5;
+		@media only screen and (max-width: 1200px) {
+			padding: $default-gap;
+			align-items: center;
+		}
 	}
 	.decorator {
 		width: 70%;
@@ -74,7 +80,7 @@ main {
 		height: fit-content;
 		margin-left: auto;
 		margin-right: auto;
-		padding: $default-gap * 4;
+		padding: $default-gap * 2;
 		&.top {
 			transform: rotate(180deg);
 		}
@@ -83,6 +89,9 @@ main {
 			height: 100px;
 			transition: all 0.5s ease-in;
 			position: absolute;
+			@media only screen and (max-width: 1200px) {
+				height: 70px;
+			}
 		}
 		&:hover img {
 			filter: hue-rotate(195deg);
@@ -100,20 +109,21 @@ main {
 	align-items: center;
 	gap: $default-gap;
 	&__banner {
-		max-width: 40%;
+		width: 40%;
 		max-height: calc(100vh - 4em);
 		img {
 			height: 100%;
 			max-width: calc(100% - $default-gap);
 			display: block;
 			margin: auto;
+			box-shadow: -50px -50px 0 -43px $primary, 50px 50px 0 -38px $secondary;
 		}
 	}
 	&__text {
 		font-family: "Quicksand";
 		box-sizing: border-box;
 		padding: $default-gap;
-		max-width: 60%;
+		width: 60%;
 
 		&--left {
 			text-align: right;
@@ -144,6 +154,19 @@ main {
 					@include textDecorationVerticalLine(right);
 				}
 			}
+		}
+	}
+}
+@media only screen and (max-width: 1100px) {
+	.container {
+		flex-direction: column;
+		&__banner {
+			order: 1;
+			width: 60%;
+		}
+		&__text {
+			order: 2;
+			width: 100%;
 		}
 	}
 }

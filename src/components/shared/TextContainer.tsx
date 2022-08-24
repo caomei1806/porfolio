@@ -18,6 +18,16 @@ const TextContainer = () => {
 	useEffect(() => {
 		hideDecorationLine()
 	}, [])
+	useEffect(() => {
+		function handleResize() {
+			if (window.innerWidth <= 1100) {
+				textReference.current?.parentElement?.classList.remove('w-50')
+				textReference.current?.parentElement?.classList.add('w-100')
+				console.log(textReference.current?.classList)
+			}
+		}
+		window.addEventListener('resize', handleResize)
+	})
 	return (
 		<section className='container__text container__text--right w-50'>
 			<p ref={textReference}>
